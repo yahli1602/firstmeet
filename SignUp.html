@@ -7,38 +7,51 @@
 </head>
 <body>
     <form>
-    <h2>Please fill in your information below</h2><br>
-    <label for="FullName"> <b>Full Name:</b></label><br>
-    <input type="text" name="full name" id="FullName"><br>
-    <label for="email"> <b>Mail Address:</b></label><br>
-    <input type="text" name="email" id="email"><br>
-    <label for="password"><b>Password:</b></label><br>
-    <input type="password" name="password" id="password"><br>
-    <label for="date"><b>Date of Birth:</b></label><br>
-    <input type="date" name="date" id="date"><br>
-    <label for="tmNum"><b>Team Number:</b></label><br>
-    <input type="number" name="Team Number" id="tmNum"><br>
-    <label for="program"><b> Program: </b></label><br>
-    <input type="checkbox" name="fll" id="fll" value="fll">
-    <label for="fll">FLL</label><br>
-    <input type="checkbox" name="ftc" id="ftc" value="ftc">
-    <label for="ftc">FTC</label><br>
-    <input type="checkbox" name="frc" id="frc" value="frc">
-    <label for="frc">FRC</label><br>
-    <label for="gender"><b>Your Gender:</b></label><br>
-    <input type="checkbox" name="male" id="male" value="male">
-    <label for="male">Male</label><br>
-    <input type="checkbox" name="female" id="female" value="female">
-    <label for="female">Female</label><br>
-    <label for="preferred"><b>Im looking for:</b></label><br>
-    <input type="checkbox" name="male" id="male" value="male">
-    <label for="male">Male</label><br>
-    <input type="checkbox" name="female" id="female" value="female">
-    <label for="female">Female</label><br>
-    <input type="checkbox" name="both" id="both" value="both">
-    <label for="both">Both</label><br>
-    <label for="bio"><b>Biography:</b></label><br>
-    <input type="text" name="bio" id="bio"><br>
-</form>
+        <h2>Please fill in your information below</h2><br>
+        <label for="FullName">Full Name:</label>
+        <input type="text" name="full name" id="FullName" required><br>
+
+        <label for="email">Mail Address:</label>
+        <input type="text" name="email" id="email" required><br>
+
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" required><br>
+
+        <label for="date">Date of Birth:</label>
+        <input type="date" name="date" id="date" required><br>
+
+        <label for="tmNum">Team Number:</label>
+        <input type="number" name="Team Number" id="tmNum" required><br>
+
+        <label for="program">Program:</label>
+        <input type="radio" name="program" id="fll" value="fll" required>
+        <label for="fll">FLL</label>
+        <input type="radio" name="program" id="ftc" value="ftc">
+        <label for="ftc">FTC</label>
+        <input type="radio" name="program" id="frc" value="frc">
+        <label for="frc">FRC</label><br>
+
+        <label for="gender">Your Gender:</label>
+        <input type="radio" name="gender" id="male" value="male" required>
+        <label for="male">male</label>
+        <input type="radio" name="gender" id="female" value="female">
+        <label for="female">female</label><br>
+
+        <label for="preferred">Im looking for:</label>
+        <input type="radio" name="prefer" id="pmale" value="male" required>
+        <label for="pmale">Male</label>
+        <input type="radio" name="prefer" id="pfemale" value="pfemale">
+        <label for="pfemale">Female</label><br>
+
+        <label for="bio">Biography:</label><br>
+        <textarea rows="5" cols="60" name="bio" id="bio" placeholder="Enter text" required></textarea><br>
+
+        <button type="submit">sign up</button>
+        <div>
+            <a href="index.html">go back</a>
+            <a href="SignIn.html">sign in </a>
+        </div>
+    </form>
+
 </body>
 </html>
