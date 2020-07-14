@@ -22,8 +22,9 @@ firebase.auth().onAuthStateChanged(function(user) {
     team = document.getElementById("tmNum").value
     description= document.getElementById("bio").value
     date = document.getElementById("date").value
-    if(program && gender && name && name && team && description && date)
-    	writeUserData(user.uid, user.email, program, gender, name, team, description, date) 
+    preference = findRadiosChecked("prefer")
+    if(program && gender && name && name && team && description && date && preference)
+    	writeUserData(user.uid, user.email, program, gender, name, team, description, date, preference) 
   } else {
     // No user is signed in.
   }
@@ -39,14 +40,15 @@ function signUp(emai, passwordl){
 	});
 }
 
-function writeUserData(userId,email ,program, gender ,name ,team ,description, date) {
+function writeUserData(userId,email ,program, gender ,name ,team ,description, date, preference) {
 	firebase.database().ref('users/' + program + "/" + gender + "/" + userId).set({
   	  full_name: name,
 	  email: email,
     	  team_number: team,
     	  //profile_picture : imageUrl,
 	  free_text: description,
-	  date: date
+	  date: date,
+	  preference: preference
   });
 }
 
