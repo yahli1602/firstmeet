@@ -6,7 +6,7 @@
     <title>Sign Up</title>
 </head>
 <body>
-    <form>
+    <form actiom='signUp(document.getElementById("email"), document.getElementById("Password"))' method="post" >
         <h2>Please fill in your information below</h2><br>
         <label for="FullName">Full Name:</label>
         <input type="text" name="full name" id="FullName" required><br>
@@ -54,6 +54,67 @@
             <a href="SignIn.html">sign in </a>
         </div>
     </form>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-analytics.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-database.js"></script>
+
+   <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-auth.js"></script>
+
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyDuTf3GbH2iXhh5SwY3rKg_oZJhNGYuqxQ",
+        authDomain: "first-meet-2a581.firebaseapp.com",
+        databaseURL: "https://first-meet-2a581.firebaseio.com",
+        projectId: "first-meet-2a581",
+        storageBucket: "first-meet-2a581.appspot.com",
+        messagingSenderId: "653673707274",
+        appId: "1:653673707274:web:c395b728777d6ba757acf3",
+        measurementId: "G-QNVBP8Y2XE"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+
+// Get a reference to the database service
+var database = firebase.database();
+
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+  } else {
+    // No user is signed in.
+  }
+});
+
+function signUp(emai, passwordl){
+	firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+  	// Handle Errors here.
+  	var errorCode = error.code;
+  	var errorMessage = error.message;
+	console.log(errorMessage);
+  	// ...
+	});
+}
+
+function writeUserData(userId,email ,program, gender ,name ,team ,imageUrl, description, date) {
+	firebase.database().ref('users/' + program + "/" + gender).set({
+  	  full_name: name,
+	  email: email,
+    	  team_number: team,
+    	  profile_picture : imageUrl,
+	  free_text: description,
+	  date: date
+  });
+}
+    </script>
 
 </body>
 </html>
